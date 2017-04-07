@@ -4,6 +4,8 @@ export Decimal
 
 importall Base.Operators
 
+# https://books.google.com/books?id=pNdiJMvPoZMC&pg=PA11&lpg=PA11&dq=IEEE+BID+format&source=bl&ots=-GbBYEh6Sa&sig=7_LN575lYEa8443zTGtFEOuLv1o&hl=en&sa=X&ved=0ahUKEwiqudHy0fLSAhUP62MKHbigDkwQ6AEIPjAI#v=onepage&q=IEEE%20BID%20format&f=false
+
 immutable Decimal{T <: Integer}
     value::T
     exp::T
@@ -220,7 +222,6 @@ Base.promote_rule{T, TI <: Integer}(::Type{Decimal{T}}, ::Type{TI}) = Decimal{pr
 Base.promote_rule{T, TF <: AbstractFloat}(::Type{Decimal{T}}, ::Type{TF}) = Decimal{float2int(promote_type(T, TF))}
 
 # TODO:
- # to ints, floats
  # rounding, trunc, floor, ceil
  # maybe:
    # equality: isapprox?
